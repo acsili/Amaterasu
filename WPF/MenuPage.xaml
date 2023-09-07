@@ -1,0 +1,23 @@
+﻿<Page x:Class="Amaterasu.MenuPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Amaterasu"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MenuPage">
+
+    <Grid Background="#FF6EC6CA">
+        <StackPanel Margin="200,0,200,0">
+            <Button x:Name="ButtonAddWord" Content="Добавить слово" HorizontalAlignment="Center" 
+                Margin="0,100,0,0" VerticalAlignment="Top" Height="62" Width="248" FontSize="20" 
+                FontFamily="Comic Sans MS" BorderBrush="#FF929292" Background="#FF8474A1" 
+                Foreground="White" Click="ButtonAddWord_Click"/>
+            <Button x:Name="ButtonTestN5" Content="Тест N5" HorizontalAlignment="Center" 
+                Margin="0,20,0,0" VerticalAlignment="Top" Height="62" Width="248" FontSize="20" 
+                FontFamily="Comic Sans MS" BorderBrush="#FF929292" Background="#FF8474A1" 
+                Foreground="White"/>
+        </StackPanel>
+    </Grid>
+</Page>
