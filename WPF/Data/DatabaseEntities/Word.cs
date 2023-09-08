@@ -11,7 +11,7 @@ namespace Amaterasu.Data.DatabaseEntities
         public int Id { get; set; }      
         public string? WordInJapanese { get; set; }
         public string? Translation { get; set; }
-        public int Level { get; set; }
+        public string? Level { get; set; }
 
     }
 }
