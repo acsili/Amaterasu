@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="WPFFiles\" />
+    <Folder Include="WPF.Files\" />
   </ItemGroup>
 
 </Project>

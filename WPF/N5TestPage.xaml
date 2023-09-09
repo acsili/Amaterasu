@@ -9,14 +9,15 @@
       Title="N5TestPage">
 
     <Grid Background="#FF867BB7">
-        
-        
-        
+
+
+
         <Button x:Name="ButtonBackToMenu" Content="Назад" HorizontalAlignment="Left" FontFamily="Comic Sans MS" 
                 Margin="650,350,0,0" VerticalAlignment="Top" Height="50" Width="100" Background="#FFF67280" 
-                Foreground="White" FontSize="20"/>
-        
-        
+                Foreground="White" FontSize="20" Click="ButtonBackToMenu_Click"/>
+        <ListBox x:Name="ListBoxN5Words" Margin="0,0,500,0"/>
+
+
 
     </Grid>
 </Page>

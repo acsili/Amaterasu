@@ -29,5 +29,10 @@ namespace Amaterasu
         {
             NavigationService.Navigate(new AddWordPage());
         }
+
+        private void ButtonTestN5_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new N5TestPage());
+        }
     }
 }
