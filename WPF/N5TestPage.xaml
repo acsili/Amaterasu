@@ -16,6 +16,7 @@
                 Margin="650,350,0,0" VerticalAlignment="Top" Height="50" Width="100" Background="#FFF67280" 
                 Foreground="White" FontSize="20" Click="ButtonBackToMenu_Click"/>
         <ListBox x:Name="ListBoxN5Words" Margin="0,0,500,0"/>
+        <Label x:Name="LabelWord" Content="" HorizontalAlignment="Left" Margin="424,125,0,0" VerticalAlignment="Top"/>
 
 
 
