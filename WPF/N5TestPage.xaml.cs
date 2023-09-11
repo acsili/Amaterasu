@@ -23,17 +23,27 @@ namespace Amaterasu
         public N5TestPage()
         {
             InitializeComponent();
+
             PrintRandomN5Words();
         }
+
         void PrintRandomN5Words()
         {
             var testCreator = new TestCreator();
 
             var randomWords = testCreator.GetRandomWords("N5");
-            
-            foreach (var word in randomWords)
+            var randomAnswers = testCreator.GetRandomAnswers(randomWords);
+
+            for (int i = 0; i < randomWords.Count; i++)
             {
-                ListBoxN5Words.Items.Add(word.WordInJapanese + " " +  word.Translation);
+                ListBoxN5Words.Items.Add(i + 1);
+                ListBoxN5Words.Items.Add(randomWords[i].WordInJapanese + " " + randomWords[i].Translation);
+                ListBoxN5Words.Items.Add("");
+                foreach (var answer in randomAnswers[i])
+                {
+                    ListBoxN5Words.Items.Add(answer.WordInJapanese + " " + answer.Translation);
+                }
+                ListBoxN5Words.Items.Add("");
             }
 
         }

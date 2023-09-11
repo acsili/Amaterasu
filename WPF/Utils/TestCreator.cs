@@ -34,21 +34,36 @@ public class TestCreator
         var random = new Random();
         var randomAnswersList = new List<List<Word>>();
 
-        var words = db.Words.Where(x => x.Level == randomWordList[0].Level).ToList();
+        var words = db.Words.Where(x => !randomWordList.Contains(x)).ToList();
 
         for (int i = 0; i < 10; i++)
         {
-            
-            int r = random.Next(0, words.Count - i);
-            randomWordList.Add(words[r]);
-            words.RemoveAt(r);
-            for (int j = 0; j < 4; j++)
+            var list = new List<Word>();
+            int r;
+            for (int j = 0; j < 3; j++)
             {
-
+                r = random.Next(0, words.Count);
+                list.Add(words[r]);
             }
+            list.Add(randomWordList[i]);
+            Shuffle(list);
+            randomAnswersList.Add(list);
         }
 
+        
         return randomAnswersList;
+    }
+
+    private static void Shuffle(List<Word> data)
+    {
+        var random = new Random();
+        for (int i = data.Count - 1; i >= 1; i--)
+        {
+            int j = random.Next(i + 1);
+            (data[i], data[j]) = (data[j], data[i]);
+        }
+
+
     }
 }
 
