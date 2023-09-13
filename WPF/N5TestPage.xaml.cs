@@ -52,5 +52,14 @@ namespace Amaterasu
         {
             NavigationService.Navigate(new MenuPage());
         }
+
+        private void ListBoxN5Words_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (ListBoxN5Words.SelectedItem != null)
+            {
+                var li = (string)ListBoxN5Words.Items[ListBoxN5Words.SelectedIndex];
+                MessageBox.Show(li);
+            }
+        }
     }
 }

@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace Amaterasu
 {
-    /// <summary>
-    /// Логика взаимодействия для MenuPage.xaml
-    /// </summary>
     public partial class MenuPage : Page
     {
         public MenuPage()

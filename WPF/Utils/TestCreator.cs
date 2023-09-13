@@ -54,6 +54,8 @@ public class TestCreator
         return randomAnswersList;
     }
 
+
+
     private static void Shuffle(List<Word> data)
     {
         var random = new Random();
@@ -62,7 +64,6 @@ public class TestCreator
             int j = random.Next(i + 1);
             (data[i], data[j]) = (data[j], data[i]);
         }
-
 
     }
 }
