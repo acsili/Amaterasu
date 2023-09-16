@@ -65,7 +65,8 @@ namespace Amaterasu
             
 
             if (NextWord != 9)
-            {
+            { 
+
                 DoN5Test();
                 NextWord++;
             }
