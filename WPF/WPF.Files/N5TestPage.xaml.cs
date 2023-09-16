@@ -22,6 +22,7 @@ namespace Amaterasu
     {
 
         private int NextWord;
+        private int Correct;
 
         List<Word> RandomWords;
         List<List<Word>> RandomAnswers;
@@ -44,10 +45,10 @@ namespace Amaterasu
 
             for (int i = 0; i < 4; i++)
             {
-                ListBoxN5Words.Items.Add(RandomAnswers[NextWord][i].WordInJapanese + " " + RandomAnswers[NextWord][i].Translation);
+                ListBoxN5Words.Items.Add(RandomAnswers[NextWord][i].Translation);
             }
 
-            NextWord++;
+            
 
         }
 
@@ -58,14 +59,22 @@ namespace Amaterasu
 
         private void ListBoxN5Words_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            //var li = (string)ListBoxN5Words.Items[ListBoxN5Words.SelectedIndex];
+            var li = (string)ListBoxN5Words.Items[ListBoxN5Words.SelectedIndex];
+
+            if (RandomWords[NextWord].Translation == li) Correct++;
+            
+
+            if (NextWord != 9)
+            {
+                DoN5Test();
+                NextWord++;
+            }
+            else
+                MessageBox.Show(Correct.ToString());
 
 
-            DoN5Test();
 
 
-
-            //MessageBox.Show(li);
 
         }
     }
