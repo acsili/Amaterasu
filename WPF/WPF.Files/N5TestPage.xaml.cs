@@ -48,7 +48,7 @@ namespace Amaterasu
                 ListBoxN5Words.Items.Add(RandomAnswers[NextWord][i].Translation);
             }
 
-            
+            NextWord++;
 
         }
 
@@ -61,21 +61,14 @@ namespace Amaterasu
         {
             var li = (string)ListBoxN5Words.Items[ListBoxN5Words.SelectedIndex];
 
-            if (RandomWords[NextWord].Translation == li) Correct++;
+            if (RandomWords[NextWord - 1].Translation == li) Correct++;
             
-
-            if (NextWord != 9)
+            if (NextWord != 10)
             { 
-
                 DoN5Test();
-                NextWord++;
             }
             else
                 MessageBox.Show(Correct.ToString());
-
-
-
-
 
         }
     }
