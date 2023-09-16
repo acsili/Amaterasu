@@ -36,6 +36,10 @@ namespace Amaterasu
             DoN5Test();
         }
 
+        /// <summary>
+        /// Обновляет задание.
+        /// </summary>
+        /// 
         void DoN5Test()
         {
 
