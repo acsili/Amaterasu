@@ -10,7 +10,7 @@ namespace Amaterasu.Utils;
 
 public class TestCreator
 {
-    public List<Word> GetRandomWords(string wordLevel)
+    public static List<Word> GetRandomWords(string wordLevel)
     {
         using var db = new ApplicationContext();
         var random = new Random();
@@ -28,7 +28,7 @@ public class TestCreator
         return randomWordList;
     }
 
-    public List<List<Word>> GetRandomAnswers(List<Word> randomWordList)
+    public static List<List<Word>> GetRandomAnswers(List<Word> randomWordList)
     {
         using var db = new ApplicationContext();
         var random = new Random();
