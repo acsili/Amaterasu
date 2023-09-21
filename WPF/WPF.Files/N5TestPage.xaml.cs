@@ -37,7 +37,7 @@ namespace Amaterasu
         }
 
         /// <summary>
-        /// Обновляет задание.
+        /// Переход к следующему слову.
         /// </summary>
         /// 
         void DoN5Test()
@@ -63,17 +63,21 @@ namespace Amaterasu
 
         private void ListBoxN5Words_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            var li = (string)ListBoxN5Words.Items[ListBoxN5Words.SelectedIndex];
+            try
+            {
+                var li = (string)ListBoxN5Words.Items[ListBoxN5Words.SelectedIndex];
 
-            if (RandomWords[NextWord - 1].Translation == li) Correct++;
-            
-            if (NextWord != 10)
-            { 
-                DoN5Test();
+                if (RandomWords[NextWord - 1].Translation == li && NextWord != 10) Correct++;
+
+                if (NextWord != 10)
+                {
+                    DoN5Test();
+                }
+                else
+                    MessageBox.Show(Correct.ToString());
             }
-            else
-                MessageBox.Show(Correct.ToString());
-
+            catch { }
+            
         }
     }
 }
