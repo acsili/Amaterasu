@@ -10,25 +10,22 @@ namespace Amaterasu.Utils;
 
 public class TestCreator
 {
-    public static List<Word> GetRandomWords(string wordLevel)
+    public static IEnumerable<Word> GetRandomWords(string wordLevel)
     {
         using var db = new ApplicationContext();
         var random = new Random();
-        var randomWordList = new List<Word>();
 
         var words = db.Words.Where(x => x.Level == wordLevel).ToList();
 
         for (int i = 0; i < 10; i++)
         {
             int r = random.Next(0, words.Count - i);
-            randomWordList.Add(words[r]);
+            yield return words[r];
             words.RemoveAt(r);
         }
-
-        return randomWordList;
     }
 
-    public static List<List<Word>> GetRandomAnswers(List<Word> randomWordList)
+    public static IEnumerable<List<Word>> GetRandomAnswers(List<Word> randomWordList)
     {
         using var db = new ApplicationContext();
         var random = new Random();
@@ -47,14 +44,9 @@ public class TestCreator
             }
             list.Add(randomWordList[i]);
             Shuffle(list);
-            randomAnswersList.Add(list);
+            yield return list;
         }
-
-        
-        return randomAnswersList;
     }
-
-
 
     private static void Shuffle(List<Word> data)
     {
