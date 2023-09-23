@@ -15,7 +15,8 @@ public class TestCreator
         using var db = new ApplicationContext();
         var random = new Random();
 
-        var words = db.Words.Where(x => x.Level == wordLevel).ToList();
+        IQueryable<Word> userIQuer = db.Words;
+        var words = userIQuer.Where(x => x.Level == wordLevel).ToList();
 
         for (int i = 0; i < 10; i++)
         {
@@ -29,9 +30,9 @@ public class TestCreator
     {
         using var db = new ApplicationContext();
         var random = new Random();
-        var randomAnswersList = new List<List<Word>>();
 
-        var words = db.Words.Where(x => !randomWordList.Contains(x)).ToList();
+        IQueryable<Word> userIQuer = db.Words;
+        var words = userIQuer.Where(x => !randomWordList.Contains(x)).ToList();
 
         for (int i = 0; i < 10; i++)
         {
