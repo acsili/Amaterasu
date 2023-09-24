@@ -9,15 +9,20 @@
       Title="N5TestPage">
 
     <Grid Background="#FF867BB7">
-
-
-
         <Button x:Name="ButtonBackToMenu" Content="Назад" HorizontalAlignment="Left" FontFamily="Comic Sans MS" 
                 Margin="650,350,0,0" VerticalAlignment="Top" Height="50" Width="100" Background="#FFF67280" 
-                Foreground="White" FontSize="20" Click="ButtonBackToMenu_Click"/>
-        <ListBox x:Name="ListBoxN5Words" FontFamily="Comic Sans MS" Margin="0,0,500,240" FontSize="20" MouseUp="ListBoxN5Words_MouseUp" Height="160" VerticalAlignment="Bottom"/>
-        <Label x:Name="LabelQuestion" Content="" FontFamily="Comic Sans MS" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Background="White" FontSize="20"/>
+                Foreground="White" FontSize="20" Click="ButtonBackToMenu_Click">
+        </Button>
+        <ListBox x:Name="ListBoxN5Words" FontFamily="Comic Sans MS" Margin="51,0,449,0" FontSize="20" 
+                 MouseUp="ListBoxN5Words_MouseUp" Height="160" VerticalAlignment="Center"/>
+        <Label x:Name="LabelQuestion" Content="" FontFamily="Comic Sans MS" HorizontalAlignment="Left"
+               Margin="110,50,0,0" VerticalAlignment="Top" Background="White" FontSize="20" Width="208"/>
+        <Border Background="White" CornerRadius="100"
+                 Margin="14,27,662,358" Height="50" Width="50">
+            <Label Content="1" FontFamily="Comic Sans MS"
+               Margin="10,1,10,0" FontSize="30"/>
 
+        </Border>
 
 
     </Grid>
