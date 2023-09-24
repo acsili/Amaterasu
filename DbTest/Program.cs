@@ -1,20 +1,17 @@
 ﻿using Amaterasu;
 using Amaterasu.Data;
 using Amaterasu.Data.DatabaseEntities;
+using Microsoft.EntityFrameworkCore;
 using System.Text;
 
-//Console.OutputEncoding = Encoding.GetEncoding(1251);
 
-using var db = new ApplicationContext();
-
-var words = db.Words.ToList();
-Console.WriteLine("Список объектов:");
-foreach (Word w in words)
+using (var db = new ApplicationContext())
 {
-    Console.WriteLine($"{w.Id}. {w.WordInJapanese} - {w.Translation}");
+    var w1 = db.Words.FirstOrDefault();
+    var w2 = db.Words.AsNoTracking().FirstOrDefault();
+
+    if (w1 != null && w2 != null)
+    {
+
+    }
 }
-
-
-
-/*string s = "きぱれ";
-Console.WriteLine(s);*/
