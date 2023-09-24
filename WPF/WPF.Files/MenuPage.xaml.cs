@@ -1,22 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Amaterasu.WPF.Files;
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Amaterasu
 {
     public partial class MenuPage : Page
     {
+        public static bool Password = false;
+
         public MenuPage()
         {
             InitializeComponent();
@@ -24,12 +17,24 @@ namespace Amaterasu
 
         private void ButtonAddWord_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddWordPage());
+            var passwordWindow = new PasswordWindow();
+            passwordWindow.Show();
+            if (Password)
+            {
+                NavigationService.Navigate(new AddWordPage());
+                passwordWindow.Close();
+            }
+                
         }
 
         private void ButtonTestN5_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new N5TestPage());
+        }
+
+        private void ButtonExit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }
