@@ -23,18 +23,17 @@ namespace Amaterasu
 
         private int NextWord;
         private int Correct;
-
-        List<Word> RandomWords;
-        List<List<Word>> RandomAnswers;
+        readonly List<Word> RandomWords;
+        readonly List<List<Word>> RandomAnswers;
 
         public N5TestPage()
         {
             InitializeComponent();
-            RandomWords = TestCreator.GetRandomWords("N5");
-            RandomAnswers = TestCreator.GetRandomAnswers(RandomWords);
-
+            RandomWords = TestCreator.GetRandomWords("N5").ToList();
+            RandomAnswers = TestCreator.GetRandomAnswers(RandomWords).ToList();
             DoN5Test();
         }
+
 
         /// <summary>
         /// Переход к следующему слову.
@@ -52,7 +51,7 @@ namespace Amaterasu
                 ListBoxN5Words.Items.Add(RandomAnswers[NextWord][i].Translation);
             }
 
-            NextWord++;
+            LabelNumberOfQuestion.Content = ++NextWord;
 
         }
 
