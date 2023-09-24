@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace Amaterasu.WPF.Files
 {
-    /// <summary>
-    /// Логика взаимодействия для PasswordWindow.xaml
-    /// </summary>
     public partial class PasswordWindow : Window
     {
         public PasswordWindow()
@@ -28,13 +25,12 @@ namespace Amaterasu.WPF.Files
 
         private void Grid_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter && TextBoxPassword.Text != "")
+            using var db = new ApplicationContext();
+            var menuPage = new MenuPage();
+
+            if (e.Key == Key.Enter && TextBoxPassword.Text != "" && db.Passwords.Select(x => x.Value).Contains(TextBoxPassword.Text))
             {
-                using var db = new ApplicationContext();
-
-
-
-                MessageBox.Show("Слово успешно сохранено");
+                menuPage.Password = true;
             }
         }
     }
