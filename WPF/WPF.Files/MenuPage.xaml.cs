@@ -3,6 +3,7 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using WPF;
 
 namespace Amaterasu
 {
@@ -15,10 +16,12 @@ namespace Amaterasu
             InitializeComponent();
         }
 
+
         private void ButtonAddWord_Click(object sender, RoutedEventArgs e)
         {
             var passwordWindow = new PasswordWindow();
             passwordWindow.Show();
+            
             if (Password)
             {
                 NavigationService.Navigate(new AddWordPage());
@@ -36,5 +39,6 @@ namespace Amaterasu
         {
             Application.Current.Shutdown();
         }
+
     }
 }
