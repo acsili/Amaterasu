@@ -5,12 +5,13 @@ using System.IO;
 
 namespace Amaterasu.Data;
 
-
 public class ApplicationContext : DbContext
 {
     public DbSet<Password> Passwords { get; set; } = null!;
     public DbSet<Word> Words { get; set; } = null!;
-    
+    public DbSet<Kanji> Kanji { get; set; } = null!;
+    public DbSet<Reading> Readings { get; set; } = null!;
+
     public ApplicationContext() => Database.EnsureCreated();
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
