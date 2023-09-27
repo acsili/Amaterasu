@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace Amaterasu.Utils;
 
-public class TestCreator
+public static class TestCreator
 {
     public static IEnumerable<Word> GetRandomWords(string wordLevel)
     {
         using var db = new ApplicationContext();
         var random = new Random();
 
-        IQueryable<Word> userIQuer = db.Words;
-        var words = userIQuer.Where(x => x.Level == wordLevel).ToList();
+        IQueryable<Word> wordIQuer = db.Words;
+        var words = wordIQuer.Where(x => x.Level == wordLevel).ToList();
 
         for (int i = 0; i < 10; i++)
         {
@@ -25,14 +25,13 @@ public class TestCreator
             words.RemoveAt(r);
         }
     }
-
     public static IEnumerable<List<Word>> GetRandomAnswers(List<Word> randomWordList)
     {
         using var db = new ApplicationContext();
         var random = new Random();
 
-        IQueryable<Word> userIQuer = db.Words;
-        var words = userIQuer.Where(x => !randomWordList.Contains(x)).ToList();
+        IQueryable<Word> wordIQuer = db.Words;
+        var words = wordIQuer.Where(x => !randomWordList.Contains(x)).ToList();
 
         for (int i = 0; i < 10; i++)
         {
@@ -48,7 +47,6 @@ public class TestCreator
             yield return list;
         }
     }
-
     private static void Shuffle(List<Word> data)
     {
         var random = new Random();
